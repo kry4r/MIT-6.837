@@ -4,6 +4,7 @@
 
 #ifndef ASSIGNMENT_GROUP_H
 #define ASSIGNMENT_GROUP_H
+#include <vector>
 #include "object3d.h"
 
 class Group :public Object3D{

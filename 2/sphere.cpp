@@ -28,6 +28,9 @@ bool Sphere::intersect(const Ray &r, Hit &h, float tmin) {
     if(intersectiontorigin_min>= tmin) t=intersectiontorigin_min;
     else if(intersectiontorigin_max >= tmin) t=intersectiontorigin_max;
     else return false;
-    h=Hit(t,_m);
+    auto intersection = r.pointAtParameter(t);
+    auto normal = intersection - _center;
+    normal.Normalize();
+    h = Hit(t, _m, normal);
     return true;
 }
