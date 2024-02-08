@@ -6,9 +6,14 @@
 #define ASSIGNMENT_GROUP_H
 #include "object3d.h"
 
-class group :public Object3D{
-    group();
+class Group :public Object3D{
+public:
+    Group(int nobj);
     void addObject(int index, Object3D *obj);
+    bool intersect(const Ray &r, Hit &h, float tmin) override;
+private:
+    std::vector<Object3D*> _objs;
+    unsigned long _nobj;
 };
 
 
