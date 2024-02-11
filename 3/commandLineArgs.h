@@ -1,12 +1,11 @@
 //
-// Created by Nidhogg on 8/2/2024.
+// Created by Nidhogg on 2024/2/7.
 //
 
 #ifndef ASSIGNMENT_COMMANDLINEARGS_H
 #define ASSIGNMENT_COMMANDLINEARGS_H
 
-
-class CommandLineArgs {
+class CommandLineArgumentParser {
 public:
     char *input_file = nullptr;
     int width = 100;
@@ -17,10 +16,9 @@ public:
     char *depth_file = nullptr;
     char *normal_file = nullptr;
     bool shade_back = false;
+    bool use_gui = false;
 
     void parse(int argc, char *argv[]);
-
 };
 
-
-#endif //ASSIGNMENT_COMMANDLINEARGS_H
+#endif //ASSIGNMENTS_COMMANDLINEARGUMENTPARSER_H

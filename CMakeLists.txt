@@ -3,7 +3,7 @@ project(assignment)
 
 set(CMAKE_CXX_STANDARD 17)
 set(OUTPUT_DIR ../bin/)
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+
 
 #A0
 add_executable(A0
@@ -67,13 +67,33 @@ set_target_properties(A2 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A2"
         OUTPUT_NAME "raytracer")
 
+
 #A3
+set(TARGET_LIB
+        "/usr/lib/x86_64-linux-gnu/libGL.so"
+        "/usr/lib/x86_64-linux-gnu/libGLU.so"
+        "/usr/lib/x86_64-linux-gnu/libglut.so"
+        )
+
 add_executable(A3
-        3/main.cpp)
+        3/main.cpp
+        3/matrix.cpp
+        3/image.cpp
+        3/sphere.cpp
+        3/raytracer.cpp
+        3/camera.cpp
+        3/group.cpp
+        3/plane.cpp
+        3/triangle.cpp
+        3/transform.cpp
+        3/commandLineArgumentParser.cpp
+        3/scene_parser.cpp
+        3/light.cpp
+        3/glCanvas.cpp
+        3/material.cpp)
 
-
-find_package(OpenGL)
-find_package(GLUT)
 set_target_properties(A3 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A3"
         OUTPUT_NAME "raytracer")
+
+target_link_libraries(A3 ${TARGET_LIB})

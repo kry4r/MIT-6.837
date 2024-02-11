@@ -1,14 +1,18 @@
 //
-// Created by Nidhogg on 8/2/2024.
+// Created by Nidhogg on 2024/2/7.
 //
-
 #include "commandLineArgs.h"
+
 #include <cstring>
 #include <cassert>
 #include <cstdio>
 #include <stdlib.h>
 
-void CommandLineArgs::parse(int argc, char **argv) {
+/* Sphere arguments */
+extern int g_theta_steps, g_phi_steps;
+extern bool g_gouraud;
+
+void CommandLineArgumentParser::parse(int argc, char **argv) {
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i],"-input")) {
             i++; assert (i < argc);
@@ -33,6 +37,15 @@ void CommandLineArgs::parse(int argc, char **argv) {
             normal_file = argv[i];
         } else if (!strcmp(argv[i],"-shade_back")) {
             shade_back = true;
+        } else if (!strcmp(argv[i],"-gui")) {
+            use_gui = true;
+        } else if (!strcmp(argv[i],"-tessellation")) {
+            i++; assert(i < argc);
+            g_theta_steps = atoi(argv[i]);
+            i++; assert(i < argc);
+            g_phi_steps = atoi(argv[i]);
+        } else if (!strcmp(argv[i],"-gouraud")) {
+            g_gouraud = true;
         } else {
             printf ("whoops error with command line argument %d: '%s'\n",i,argv[i]);
             assert(0);
