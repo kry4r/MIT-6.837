@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 project(assignment)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 set(OUTPUT_DIR ../bin/)
 
 
@@ -69,11 +69,11 @@ set_target_properties(A2 PROPERTIES
 
 
 #A3
-set(TARGET_LIB
-        "/usr/lib/x86_64-linux-gnu/libGL.so"
-        "/usr/lib/x86_64-linux-gnu/libGLU.so"
-        "/usr/lib/x86_64-linux-gnu/libglut.so"
-        )
+FIND_PACKAGE(OpenGL)
+set(LIB_SOURCE
+        "C:/software/CLion 2023.1.3/bin/mingw/x86_64-w64-mingw32/lib/libfreeglut.dll.a"
+        "C:/software/CLion 2023.1.3/bin/mingw/x86_64-w64-mingw32/lib/libfreeglut_static.a"
+        "C:/software/CLion 2023.1.3/bin/mingw/x86_64-w64-mingw32/lib/libglu32.a")
 
 add_executable(A3
         3/main.cpp
@@ -86,7 +86,7 @@ add_executable(A3
         3/plane.cpp
         3/triangle.cpp
         3/transform.cpp
-        3/commandLineArgumentParser.cpp
+        3/commandLineArgs.cpp
         3/scene_parser.cpp
         3/light.cpp
         3/glCanvas.cpp
@@ -96,4 +96,4 @@ set_target_properties(A3 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A3"
         OUTPUT_NAME "raytracer")
 
-target_link_libraries(A3 ${TARGET_LIB})
+target_link_libraries(A3 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
