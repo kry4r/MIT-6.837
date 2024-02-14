@@ -97,3 +97,27 @@ set_target_properties(A3 PROPERTIES
         OUTPUT_NAME "raytracer")
 
 target_link_libraries(A3 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
+
+
+add_executable(A4
+        4/main.cpp
+        4/matrix.cpp
+        4/image.cpp
+        4/sphere.cpp
+        4/raytracer.cpp
+        4/camera.cpp
+        4/group.cpp
+        4/plane.cpp
+        4/triangle.cpp
+        4/transform.cpp
+        4/commandLineArgs.cpp
+        4/scene_parser.cpp
+        4/light.cpp
+        4/glCanvas.cpp
+        4/material.cpp 4/raytree.cpp 4/raytree.h)
+
+set_target_properties(A4 PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A4"
+        OUTPUT_NAME "raytracer")
+
+target_link_libraries(A4 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
