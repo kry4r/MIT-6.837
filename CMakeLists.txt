@@ -187,3 +187,82 @@ set_target_properties(A6 PROPERTIES
 target_link_libraries(A6 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
 
 target_compile_options(A6 PUBLIC "-Wno-deprecated-declarations")
+
+### A7 ###
+
+add_executable(A7
+        7/main.cpp
+        7/matrix.cpp
+        7/image.cpp
+        7/sphere.cpp
+        7/raytracer.cpp
+        7/camera.cpp
+        7/group.cpp
+        7/plane.cpp
+        7/triangle.cpp
+        7/transform.cpp
+        7/commandLineArgs.cpp
+        7/scene_parser.cpp
+        7/light.cpp
+        7/glCanvas.cpp
+        7/material.cpp
+        7/rayTree.cpp
+        7/grid.cpp
+        7/boundingbox.cpp
+        7/object3d.cpp
+        7/hsl.cpp
+        7/perlin_noise.cpp
+        7/raytracing_stats.cpp
+        7/film.cpp
+        7/filter.cpp
+        7/sampler.cpp)
+
+set_target_properties(A7 PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A7"
+        OUTPUT_NAME "raytracer")
+
+target_link_libraries(A7 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
+
+target_compile_options(A7 PUBLIC "-Wno-deprecated-declarations")
+
+### A8 ###
+
+add_executable(A8
+        8/main.cpp
+        8/glCanvas.cpp
+        8/matrix.cpp
+        8/spline_parser.cpp
+        8/triangle_mesh.cpp
+        8/curve.cpp
+        8/surface.cpp
+        8/spline.cpp)
+
+set_target_properties(A8 PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A8"
+        OUTPUT_NAME "curve_editor")
+
+target_link_libraries(A8 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
+
+target_compile_options(A8 PUBLIC "-Wno-deprecated-declarations")
+
+### A9 ###
+
+add_executable(A9
+        9/main.cpp
+        9/glCanvas.cpp
+        9/matrix.cpp
+        9/parser.cpp
+        9/particle.cpp
+        9/system.cpp
+        9/generator.cpp
+        9/integrator.cpp
+        9/forcefield.cpp
+        9/perlin_noise.cpp)
+
+set_target_properties(A9 PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/A9"
+        OUTPUT_NAME "particle_system")
+
+target_link_libraries(A9 ${OPENGL_gl_LIBRARY} ${LIB_SOURCE})
+
+target_compile_options(A9 PUBLIC "-Wno-deprecated-declarations")
